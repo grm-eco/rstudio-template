@@ -3,7 +3,9 @@
   "features": {
     "ghcr.io/rocker-org/devcontainer-features/rstudio-server": {}
   },
-  "postAttachCommand": { "rstudio-start": "rstudio-server start" },
+  "postAttachCommand": {
+    "rstudio-start": "sudo chown -R \"$(whoami)\" /var/lib/rstudio-server && rstudio-server start"
+  },
   "forwardPorts": [8787],
   "portsAttributes": { "8787": { "label": "RStudio", "onAutoForward": "openBrowser" } }
 }
